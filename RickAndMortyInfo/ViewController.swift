@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
     var characters = Characters()
     var activityIndicator = UIActivityIndicatorView()
@@ -60,6 +61,25 @@ class ViewController: UIViewController {
     
     @IBAction func loadAllPressed(_ sender: UIBarButtonItem) {
         loadData(loadAll: true)
+    }
+    
+    @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
+        switch sortSegmentedControl.selectedSegmentIndex {
+        case 0: //characters
+            //stuff here
+            print("this is case 1 ")
+            tableView.isHidden = false
+            //locationTableView.isHidden = true
+        case 1: //locations
+            tableView.isHidden = true
+            //locationTableView = false
+            
+            
+        default:
+            print("hey you should not have gotten here")
+            
+        }
+        tableView.reloadData()
     }
 }
 

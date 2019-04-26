@@ -18,6 +18,8 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var characterImageView: UIImageView!
+    @IBOutlet weak var typeStaticLabel: UILabel!
+    @IBOutlet weak var statusStaticLabel: UILabel!
     
     var characterInfo = CharacterInfo()
     
@@ -44,10 +46,21 @@ class CharacterDetailViewController: UIViewController {
         } catch {
             print("ERROR: error thrown trying to get image form URL: \(url)")
         }
-        if characterInfo.type == "" {
-            typeLabel.isHidden = true
+        if characterInfo.status == "Dead" {
+            statusLabel.textColor = UIColor.red
+        } else if characterInfo.status == "Alive" {
+            statusLabel.textColor = UIColor.green
         }
+        
+        if characterInfo.type == "" {
+            typeStaticLabel.isHidden = true
+            typeLabel.isHidden = true
+            
+        }
+        
+        
     }
+    
     
 
 }
