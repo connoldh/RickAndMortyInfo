@@ -82,7 +82,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "\(indexPath.row+1). \(characters.characterArray[indexPath.row].name)"
-        
         if indexPath.row == characters.characterArray.count-1 && characters.apiURL.hasPrefix("http") {
             activityIndicator.startAnimating()
             characters.getCharacters {
