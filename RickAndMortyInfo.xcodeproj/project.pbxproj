@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2795142822728A4300F7A174 /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795142722728A4300F7A174 /* CharacterInfo.swift */; };
 		2795142A22728C7C00F7A174 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795142922728C7C00F7A174 /* Characters.swift */; };
+		2795142C2272AAC500F7A174 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795142B2272AAC500F7A174 /* CharacterDetailViewController.swift */; };
 		27F81725227281900058462F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F81724227281900058462F /* AppDelegate.swift */; };
 		27F81727227281900058462F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F81726227281900058462F /* ViewController.swift */; };
 		27F8172A227281900058462F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F81728227281900058462F /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		2795142722728A4300F7A174 /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
 		2795142922728C7C00F7A174 /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		2795142B2272AAC500F7A174 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		27F81721227281900058462F /* RickAndMortyInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F81724227281900058462F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27F81726227281900058462F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				2795142722728A4300F7A174 /* CharacterInfo.swift */,
 				2795142922728C7C00F7A174 /* Characters.swift */,
 				27F81726227281900058462F /* ViewController.swift */,
+				2795142B2272AAC500F7A174 /* CharacterDetailViewController.swift */,
 				27F81728227281900058462F /* Main.storyboard */,
 				27F8172B227281910058462F /* Assets.xcassets */,
 				27F8172D227281910058462F /* LaunchScreen.storyboard */,
@@ -218,6 +221,7 @@
 			files = (
 				2795142822728A4300F7A174 /* CharacterInfo.swift in Sources */,
 				27F81727227281900058462F /* ViewController.swift in Sources */,
+				2795142C2272AAC500F7A174 /* CharacterDetailViewController.swift in Sources */,
 				27F81725227281900058462F /* AppDelegate.swift in Sources */,
 				2795142A22728C7C00F7A174 /* Characters.swift in Sources */,
 			);
