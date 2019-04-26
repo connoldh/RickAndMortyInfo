@@ -30,13 +30,6 @@ class ViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowCharacterDetail" {
-            let destination = segue.destination as! CharacterDetailViewController
-            let selectedIndexPath = tableView.indexPathForSelectedRow!
-            destination.name
-        }
-    }
     
     func loadData(loadAll: Bool) {
         if characters.apiURL.hasPrefix("http") {
@@ -102,7 +95,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         UIApplication.shared.endIgnoringInteractionEvents()
         
         return cell
-    }    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowCharacterDetail" {
+            let destination = segue.destination as! CharacterDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow!
+            destination.characterInfo = characters.characterArray[selectedIndex.row]
+        }
+        
+        
+    }
 }
 
 

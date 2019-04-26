@@ -19,11 +19,34 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var characterImageView: UIImageView!
     
+    var characterInfo = CharacterInfo()
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUserInterface()
 
+    }
+    
+    func updateUserInterface() {
+        nameLabel.text = characterInfo.name
+        originLabel.text = characterInfo.origin
+        locationLabel.text = characterInfo.location
+        speciesLabel.text = characterInfo.species
+        typeLabel.text = characterInfo.type
+        statusLabel.text = characterInfo.status
+        guard let url = URL(string: characterInfo.image) else { return }
+        do {
+            let data = try Data(contentsOf: url)
+            characterImageView.image = UIImage(data: data)
+        } catch {
+            print("ERROR: error thrown trying to get image form URL: \(url)")
+        }
+        if characterInfo.type == "" {
+            typeLabel.isHidden = true
+        }
     }
     
 
