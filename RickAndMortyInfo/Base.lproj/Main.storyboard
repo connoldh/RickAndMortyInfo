@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v4w-zs-iaw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0mr-j6-svs">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0dK-MQ-Efx">
-                                <rect key="frame" x="0.0" y="88" width="414" height="720"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="Rk7-uB-Qt0" style="IBUITableViewCellStyleDefault" id="cfV-xs-iyv">
@@ -45,11 +45,11 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSz-0G-kNw">
-                                <rect key="frame" x="0.0" y="808" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" id="zZz-6X-XlG">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Z6c-gT-SVj">
-                                            <rect key="frame" x="20" y="9.6666666666666643" width="374" height="30"/>
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Z6c-gT-SVj">
+                                            <rect key="frame" x="20" y="7" width="374" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Characters"/>
@@ -199,6 +199,44 @@
             </objects>
             <point key="canvasLocation" x="2518.840579710145" y="-547.09821428571422"/>
         </scene>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="g1u-Kx-XdE">
+            <objects>
+                <viewController id="0mr-j6-svs" customClass="SplashScreenViewController" customModule="RickAndMortyInfo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1dT-kN-uC1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="27539-4-rick-and-morty" translatesAutoresizingMaskIntoConstraints="NO" id="ToH-eX-X6q" userLabel="rick-and-morty">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JAV-4g-exn" appends="YES" id="29X-tm-s4h"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TNw-Cy-a9I" firstAttribute="bottom" secondItem="ToH-eX-X6q" secondAttribute="bottom" id="K32-Bz-RLm"/>
+                            <constraint firstItem="ToH-eX-X6q" firstAttribute="leading" secondItem="TNw-Cy-a9I" secondAttribute="leading" id="SUB-vF-x2E"/>
+                            <constraint firstItem="TNw-Cy-a9I" firstAttribute="trailing" secondItem="ToH-eX-X6q" secondAttribute="trailing" id="a3H-bz-H7p"/>
+                            <constraint firstItem="ToH-eX-X6q" firstAttribute="top" secondItem="TNw-Cy-a9I" secondAttribute="top" id="w4S-Gf-hAA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TNw-Cy-a9I"/>
+                    </view>
+                    <connections>
+                        <segue destination="v4w-zs-iaw" kind="show" identifier="ShowTableView" id="RC0-3R-FKO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="it9-BZ-cAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="JAV-4g-exn">
+                    <connections>
+                        <action selector="imageTapped:" destination="0mr-j6-svs" id="6Xf-CD-yRA"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-759" y="-546"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fVU-tO-wMg">
             <objects>
@@ -218,4 +256,7 @@
             <point key="canvasLocation" x="269.56521739130437" y="-547.09821428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="27539-4-rick-and-morty" width="1024" height="640"/>
+    </resources>
 </document>
