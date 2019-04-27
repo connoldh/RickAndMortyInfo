@@ -13,6 +13,7 @@
 		2795142A22728C7C00F7A174 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795142922728C7C00F7A174 /* Characters.swift */; };
 		2795142C2272AAC500F7A174 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795142B2272AAC500F7A174 /* CharacterDetailViewController.swift */; };
 		27AD7D6622739971007469D9 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD7D6522739971007469D9 /* SplashScreenViewController.swift */; };
+		27C2FE7B2274D158000276EC /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2FE7A2274D158000276EC /* LocationDetailViewController.swift */; };
 		27F81725227281900058462F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F81724227281900058462F /* AppDelegate.swift */; };
 		27F81727227281900058462F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F81726227281900058462F /* ViewController.swift */; };
 		27F8172A227281900058462F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F81728227281900058462F /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		2795142922728C7C00F7A174 /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		2795142B2272AAC500F7A174 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		27AD7D6522739971007469D9 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		27C2FE7A2274D158000276EC /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		27F81721227281900058462F /* RickAndMortyInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F81724227281900058462F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27F81726227281900058462F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				2795142922728C7C00F7A174 /* Characters.swift */,
 				27AD7D6522739971007469D9 /* SplashScreenViewController.swift */,
 				27F81726227281900058462F /* ViewController.swift */,
+				27C2FE7A2274D158000276EC /* LocationDetailViewController.swift */,
 				2795142B2272AAC500F7A174 /* CharacterDetailViewController.swift */,
 				27F81728227281900058462F /* Main.storyboard */,
 				27F8172B227281910058462F /* Assets.xcassets */,
@@ -232,6 +235,7 @@
 				27F81727227281900058462F /* ViewController.swift in Sources */,
 				27AD7D6622739971007469D9 /* SplashScreenViewController.swift in Sources */,
 				2795142C2272AAC500F7A174 /* CharacterDetailViewController.swift in Sources */,
+				27C2FE7B2274D158000276EC /* LocationDetailViewController.swift in Sources */,
 				27F81725227281900058462F /* AppDelegate.swift in Sources */,
 				2795142A22728C7C00F7A174 /* Characters.swift in Sources */,
 				27211B202273A5DB0010BEDD /* Locations.swift in Sources */,

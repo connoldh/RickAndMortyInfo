@@ -18,7 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0dK-MQ-Efx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XTC-PQ-sQS" userLabel="Location Table View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="382"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="725" id="d5U-i1-gYL"/>
+                                    <constraint firstAttribute="width" constant="414" id="zR7-7K-CHn"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" id="xYa-kt-onG">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xYa-kt-onG" id="0Kc-5Y-MfA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb0-zC-eVc">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="WKI-nH-SWC" kind="show" identifier="ShowLocationInfo" id="qFa-Oh-XQv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0dK-MQ-Efx" userLabel="Character Table View">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -66,12 +96,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gSz-0G-kNw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0oC-4i-Xq8"/>
+                            <constraint firstItem="XTC-PQ-sQS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2sY-dB-lbg"/>
+                            <constraint firstItem="gSz-0G-kNw" firstAttribute="top" secondItem="XTC-PQ-sQS" secondAttribute="bottom" constant="343" id="7qk-di-kar"/>
+                            <constraint firstItem="XTC-PQ-sQS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8En-Fb-bc8"/>
                             <constraint firstItem="0dK-MQ-Efx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="DLq-09-dYB"/>
                             <constraint firstItem="0dK-MQ-Efx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JLv-lc-mUw"/>
                             <constraint firstItem="gSz-0G-kNw" firstAttribute="top" secondItem="0dK-MQ-Efx" secondAttribute="bottom" id="Kmg-eV-rcl"/>
+                            <constraint firstItem="XTC-PQ-sQS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TuZ-xv-ZlQ"/>
                             <constraint firstItem="gSz-0G-kNw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="c5R-6d-L9q"/>
                             <constraint firstItem="0dK-MQ-Efx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hEc-qW-FQQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gSz-0G-kNw" secondAttribute="bottom" constant="5" id="sOY-So-jjg"/>
+                            <constraint firstItem="gSz-0G-kNw" firstAttribute="top" secondItem="XTC-PQ-sQS" secondAttribute="bottom" id="vHr-NR-fhx"/>
+                            <constraint firstItem="gSz-0G-kNw" firstAttribute="top" secondItem="XTC-PQ-sQS" secondAttribute="bottom" constant="343" id="zgF-OP-RnK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -83,6 +119,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationTableView" destination="XTC-PQ-sQS" id="K3h-e2-hAD"/>
                         <outlet property="sortSegmentedControl" destination="Z6c-gT-SVj" id="mkQ-hJ-th7"/>
                         <outlet property="tableView" destination="0dK-MQ-Efx" id="vi8-8h-QpM"/>
                     </connections>
@@ -199,6 +236,21 @@
             </objects>
             <point key="canvasLocation" x="2518.840579710145" y="-547.09821428571422"/>
         </scene>
+        <!--Location Detail View Controller-->
+        <scene sceneID="X3V-IU-vbU">
+            <objects>
+                <viewController id="WKI-nH-SWC" customClass="LocationDetailViewController" customModule="RickAndMortyInfo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OTH-7a-3a1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="JY3-rO-GkH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k81-SO-Pe9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1399" y="233"/>
+        </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="g1u-Kx-XdE">
             <objects>
@@ -207,7 +259,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="27539-4-rick-and-morty" translatesAutoresizingMaskIntoConstraints="NO" id="ToH-eX-X6q" userLabel="rick-and-morty">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rick-And-Morty-2" translatesAutoresizingMaskIntoConstraints="NO" id="ToH-eX-X6q" userLabel="rick-and-morty">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -257,6 +309,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="27539-4-rick-and-morty" width="1024" height="640"/>
+        <image name="Rick-And-Morty-2" width="612" height="792"/>
     </resources>
 </document>

@@ -12,8 +12,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var locationTableView: UITableView!
+    
     
     var characters = Characters()
+    var locations = Locations()
+//    var locations = ["earth", "moon", "sun"]
     var activityIndicator = UIActivityIndicatorView()
     
     
@@ -21,11 +25,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        locationTableView.delegate = self
+        locationTableView.dataSource = self
         
         setUpActivityIndicator()
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
         
+        locations.getLocations {
+            self.locationTableView.reloadData()
+        }
         characters.getCharacters {
             self.tableView.reloadData()
         }
@@ -33,17 +42,33 @@ class ViewController: UIViewController {
     
     
     func loadData(loadAll: Bool) {
-        if characters.apiURL.hasPrefix("http") {
+            if characters.apiURL.hasPrefix("http") {
+                activityIndicator.startAnimating()
+                UIApplication.shared.beginIgnoringInteractionEvents()
+                characters.getCharacters {
+                    self.tableView.reloadData()
+                    self.navigationItem.title = "\(self.characters.characterArray.count) of \(self.characters.totalCharacters) Characters"
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    if loadAll {
+                        self.loadData(loadAll: loadAll)
+                        
+                    }
+                }
+            }
+    }
+    
+    func loadLocationData(loadAll: Bool) {
+        if locations.apiLocationURL.hasPrefix("http") {
             activityIndicator.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
-            characters.getCharacters {
-                self.tableView.reloadData()
-                self.navigationItem.title = "\(self.characters.characterArray.count) of \(self.characters.totalCharacters) Characters"
+            locations.getLocations {
+                self.locationTableView.reloadData()
+                self.navigationItem.title = "\(self.locations.locationArray.count) of \(self.locations.totalLocations) Locations"
                 self.activityIndicator.stopAnimating()
                 UIApplication.shared.endIgnoringInteractionEvents()
                 if loadAll {
                     self.loadData(loadAll: loadAll)
-
                 }
             }
         }
@@ -61,25 +86,25 @@ class ViewController: UIViewController {
     
     @IBAction func loadAllPressed(_ sender: UIBarButtonItem) {
         loadData(loadAll: true)
+        loadLocationData(loadAll: true)
     }
     
     @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
         switch sortSegmentedControl.selectedSegmentIndex {
         case 0: //characters
             //stuff here
-            print("this is case 1 ")
+            print("this is case 1")
             tableView.isHidden = false
-            //locationTableView.isHidden = true
+            locationTableView.isHidden = true
         case 1: //locations
             tableView.isHidden = true
-            //locationTableView = false
-            
-            
+            locationTableView.isHidden = false
         default:
             print("hey you should not have gotten here")
             
         }
         tableView.reloadData()
+        locationTableView.reloadData()
     }
 }
 
@@ -96,24 +121,42 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.characterArray.count
+        if tableView == tableView {
+            return characters.characterArray.count
+        } else {
+            return locations.locationArray.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row+1). \(characters.characterArray[indexPath.row].name)"
-        if indexPath.row == characters.characterArray.count-1 && characters.apiURL.hasPrefix("http") {
-            activityIndicator.startAnimating()
-            characters.getCharacters {
-                self.tableView.reloadData()
-                self.navigationItem.title = "\(self.characters.characterArray.count) of \(self.characters.totalCharacters) Characters"
+        if tableView == locationTableView {
+            let cell = locationTableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+            cell.textLabel?.text = "\(indexPath.row+1). \(locations.locationArray[indexPath.row].name)"
+            if indexPath.row == locations.locationArray.count-1 && locations.apiLocationURL.hasPrefix("http") {
+                activityIndicator.startAnimating()
+                locations.getLocations {
+                    self.locationTableView.reloadData()
+                    self.navigationItem.title = "\(self.locations.locationArray.count) of \(self.locations.totalLocations) Locations"
+                }
             }
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.textLabel?.text = "\(indexPath.row+1). \(characters.characterArray[indexPath.row].name)"
+            if indexPath.row == characters.characterArray.count-1 && characters.apiURL.hasPrefix("http") {
+                activityIndicator.startAnimating()
+                characters.getCharacters {
+                    self.tableView.reloadData()
+                    self.navigationItem.title = "\(self.characters.characterArray.count) of \(self.characters.totalCharacters) Characters"
+                }
+            }
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            return cell
         }
-        
-        self.activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
-        
-        return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,6 +165,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let selectedIndex = tableView.indexPathForSelectedRow!
             destination.characterInfo = characters.characterArray[selectedIndex.row]
         }
+        
+//        if segue.identifier == "ShowLocationInfo" {
+//            let destination = segue.destination as!
+//            LocationDetailViewController
+//            let selectedIndex = locationTableView.indexPathForSelectedRow!
+//            destination.
+//        }
         
         
     }

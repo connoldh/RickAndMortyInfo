@@ -15,21 +15,21 @@ class SplashScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        playSound(soundName: "Rick-and-morty-theme", auidoPlayer: &audioPlayer)
+//        playSound(soundName: "Rick-and-morty-theme", auidoPlayer: &audioPlayer)
     }
     
-    func playSound(soundName: String, auidoPlayer: inout AVAudioPlayer) {
-        if let sound = NSDataAsset(name: soundName) {
-            do {
-                try audioPlayer = AVAudioPlayer(data: sound.data)
-                audioPlayer.play()
-            } catch {
-                print("Error: Data from \(soundName) could not be played as an audio file")
-            }
-        } else {
-            print("Error: Could not load the data from the file \(soundName)")
-        }
-    }
+//    func playSound(soundName: String, auidoPlayer: inout AVAudioPlayer) {
+//        if let sound = NSDataAsset(name: soundName) {
+//            do {
+//                try audioPlayer = AVAudioPlayer(data: sound.data)
+//                audioPlayer.play()
+//            } catch {
+//                print("Error: Data from \(soundName) could not be played as an audio file")
+//            }
+//        } else {
+//            print("Error: Could not load the data from the file \(soundName)")
+//        }
+//    }
 
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "ShowTableView", sender: nil)
